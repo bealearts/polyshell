@@ -19,7 +19,7 @@ var fs = require('fs');
 var polygot = require('polygot');
 
 var polygotStream = polygot(fs.createFileStream('script.bat'), fs.createFileStream('script.sh'));
-polygotStream.pipe(fs.createWriteStream('script.cmd');
+polygotStream.pipe(fs.createWriteStream('script.cmd'));
 ```
 
 As a program
