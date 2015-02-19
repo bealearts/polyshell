@@ -1,0 +1,50 @@
+{
+  "name": "polygot",
+  "description": "Combines Microsoft Windows and POSIX shell scripts into a single cross platform script",
+  "version": "1.0.0",
+  "main": "lib/polygot.js",
+  "homepage": "https://github.com/bealearts/polygot",
+  "author": {
+    "name": "David Beale",
+    "url": "http://bealearts.co.uk/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/bealearts/polygot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bealearts/polygot/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/bealearts/polygot/blob/master/LICENSE"
+    }
+  ],
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "echo test"
+  },
+  "dependencies": {
+    "combined-stream": "0.0.7",
+    "split": "^0.3.3",
+    "through2": "^0.6.3"
+  },
+  "devDependencies": {
+    "sinon": "^1.12.2"
+  },
+  "keywords": [
+    "polygot",
+    "script",
+    "stream",
+    "cross-platform",
+    "window",
+    "POSIX",
+    "batch",
+    "program",
+    "readable",
+    "pipe"
+  ]
+}
