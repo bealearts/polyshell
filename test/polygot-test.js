@@ -63,7 +63,7 @@ describe('polygot module', function() {
 			{
 				fs.chmodSync('tmp/hello.cmd', '755');
 
-				execute('tmp/hello.cmdx', function(greeting){
+				execute('tmp/hello.cmd', function(greeting){
 
 					expects(greeting).to.equal('Hello\n');
 
