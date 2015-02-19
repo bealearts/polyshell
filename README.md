@@ -32,14 +32,12 @@ polygot script.bat script.sh > script.cmd
 hello.bat
 ```bat
 @echo off
-
 echo Hello
 ```
 
 hello.sh
 ```shell
 #!/bin/sh
-
 echo Hello
 ```
 
