@@ -8,6 +8,7 @@ var del = require('del');
 
 gulp.task('default', ['test']);
 
+
 gulp.task('clean', function(callback){
 	del(['tmp'], callback);
 });
