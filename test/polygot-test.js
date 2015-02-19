@@ -63,13 +63,16 @@ describe('polygot module', function() {
 			{
 				fs.chmodSync('tmp/hello.cmd', '755');
 
-				execute('tmp/hello.cmd', function(greeting){
+				// Work around "text file busy" issue on Linux
+				setTimeout(function() {
+					execute('tmp/hello.cmd', function(greeting){
 
-					expects(greeting).to.equal('Hello\n');
+						expects(greeting).to.equal('Hello\n');
 
-					callback();
+						callback();
 
-				});
+					});
+				}, 100);
 			}
 
 		});
