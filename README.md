@@ -44,3 +44,19 @@ echo Hello
 ```shell
 polygot hello.bat hello.sh > hello.cmd
 ```
+
+### On Windows
+```batch
+c:\project\hello.cmd
+Hello
+
+c:\project\
+```
+
+### On Linux/Unix/OSX etc
+```shell
+user$ chmod +x hello.cmd
+user$ ./hello.cmd
+Hello
+user$ 
+```
