@@ -1,5 +1,5 @@
 # polygot
-Combines Microsoft Windows and POSIX shell scripts into a single cross platform script
+Combines Microsoft Windows and POSIX, shell scripts into a single cross platform script
 
 ## Installation
 As a module
@@ -47,10 +47,10 @@ polygot hello.bat hello.sh > hello.cmd
 
 ### On Windows
 ```shell
-c:\project\hello.cmd
+c:\project>hello.cmd
 Hello
 
-c:\project\
+c:\project>
 ```
 
 ### On Linux/Unix/OSX etc
