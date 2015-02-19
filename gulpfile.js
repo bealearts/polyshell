@@ -15,7 +15,7 @@ gulp.task('clean', function(callback){
 
 gulp.task('test', ['clean', 'js'], function() {
     return gulp.src('test/*.js')
-    	.pipe(plugins.mocha({reporter: 'Spec'}));
+    	.pipe(plugins.mocha({reporter: 'spec'}));
 });
 
 
