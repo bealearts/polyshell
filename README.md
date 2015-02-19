@@ -1,4 +1,4 @@
-# polygot
+# polygot [![Build Status](https://travis-ci.org/bealearts/polygot.svg)](https://travis-ci.org/bealearts/polygot)
 Combines Microsoft Windows and POSIX, shell scripts into a single cross platform script
 
 ## Installation
