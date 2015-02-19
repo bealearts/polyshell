@@ -2,23 +2,87 @@
 
 var polygot = require('../lib/polygot');
 var fs = require('fs');
+var concat = require('concat-stream');
+var expects = require('chai').expect;
+var bufferEqual = require('buffer-equal');
+var exec = require('child_process').exec;
 
-describe('polygot module', function(){
+fs.mkdirSync('tmp');
+
+
+describe('polygot module', function() {
 	
-	it('should combine Windows and POSIX scripts', function(callback){
+	it('should combine Windows and POSIX scripts', function(callback) {
 
 		var winScript = fs.createReadStream('test/artifacts/hello.bat');
 		var posixScript = fs.createReadStream('test/artifacts/hello.sh');
 
 		var polygotStream = polygot(winScript, posixScript);
 
-		fs.mkdirSync('tmp');
+		var concatStream = concat(onResult);
 
-		var result = fs.createWriteStream('tmp/hello.cmd');
+		polygotStream.pipe(concatStream);
 
-		polygotStream.pipe(result)
-			.on('end', callback);
+		function onResult(result) 
+		{
+			var cmdScriptBuffer = fs.readFileSync('test/artifacts/hello.cmd');
+			var resultBuffer = new Buffer(result);
+
+			expects(bufferEqual(resultBuffer, cmdScriptBuffer)).to.equal(true);
+
+			callback();
+		}
 
 	});
 
+
+	it('result should execute on Windows and POSIX platforms', function(callback) {
+
+		var winScript = fs.createReadStream('test/artifacts/hello.bat');
+		var posixScript = fs.createReadStream('test/artifacts/hello.sh');
+
+		var polygotStream = polygot(winScript, posixScript);
+
+		var result = fs.createWriteStream('tmp/hello.cmd');
+
+		polygotStream.pipe(result);
+
+		polygotStream.on('end', function(){
+
+			if (/^win/.test(process.platform))
+			{
+				execute('.\\tmp\\hello.cmd', function(greeting){
+
+					expects(greeting).to.equal('Hello\r\n');
+
+					callback();
+
+				});
+			}
+			else
+			{
+				fs.chmodSync('tmp/hello.cmd', '755');
+
+				execute('tmp/hello.cmd', function(greeting){
+
+					expects(greeting).to.equal('Hello\n');
+
+					callback();
+
+				});
+			}
+
+		});
+
+	});	
+
 });
+
+
+
+function execute(command, callback)
+{
+    exec(command, function(error, stdout, stderr){ 
+    	callback(stdout); 
+    });
+}

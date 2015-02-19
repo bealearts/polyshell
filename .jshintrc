@@ -17,7 +17,8 @@
      "devel": "true",
      "globals": {
           "describe": false,
-          "it": false
+          "it": false,
+          "expect": false
      }
 
 }

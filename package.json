@@ -33,6 +33,10 @@
     "through2": "^0.6.3"
   },
   "devDependencies": {
+    "buffer-equal": "0.0.1",
+    "chai": "^2.0.0",
+    "concat-stream": "^1.4.7",
+    "del": "^1.1.1",
     "gulp": "^3.8.11",
     "gulp-jshint": "^1.9.2",
     "gulp-load-plugins": "^0.8.0",
