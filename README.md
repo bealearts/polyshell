@@ -46,7 +46,7 @@ polygot hello.bat hello.sh > hello.cmd
 ```
 
 ### On Windows
-```batch
+```shell
 c:\project\hello.cmd
 Hello
 
