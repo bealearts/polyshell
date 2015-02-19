@@ -28,3 +28,21 @@ polygot script.bat script.sh > script.cmd
 ```
 
 ## Example
+
+hello.bat
+```bat
+@echo off
+
+echo Hello
+```
+
+hello.sh
+```shell
+#!/bin/sh
+
+echo Hello
+```
+
+```shell
+polygot hello.bat hello.sh > hello.cmd
+```
