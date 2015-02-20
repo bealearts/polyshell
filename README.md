@@ -60,3 +60,8 @@ user$ ./hello.cmd
 Hello
 user$ 
 ```
+
+## Limitations
+To run on as many systems as possible, the Windows script should be a Batch file, and the POSIX script should be a Bourne shell file.
+
+When executing on POSIX systems, the script will run uisng the default shell. This is almost always the Bourne shell, however there is no guarantee that the default has not been changed!
