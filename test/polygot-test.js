@@ -61,18 +61,15 @@ describe('polygot module', function() {
 			}
 			else
 			{
-				fs.chmodSync('tmp/hello.cmd', '755');
-
-				// Work around "text file busy" issue on Linux
-				setTimeout(function() {
+				fs.chmod('tmp/hello.cmd', '755', function(){
 					execute('tmp/hello.cmd', function(greeting){
 
 						expects(greeting).to.equal('Hello\n');
 
 						callback();
 
-					});
-				}, 100);
+					});					
+				});
 			}
 
 		});
@@ -80,6 +77,44 @@ describe('polygot module', function() {
 	});	
 
 });
+
+
+
+describe('polygot program', function() {
+
+	it('result should execute on Windows and POSIX platforms', function(callback) {
+
+		execute('node bin/polygot.js test/artifacts/hello.bat test/artifacts/hello.sh > tmp/program.cmd', function() {
+
+			if (/^win/.test(process.platform))
+			{
+				execute('.\\tmp\\hello.cmd', function(greeting){
+
+					expects(greeting).to.equal('Hello\r\n');
+
+					callback();
+
+				});
+			}
+			else
+			{
+				fs.chmod('tmp/program.cmd', '755', function(){
+					execute('tmp/program.cmd', function(greeting){
+
+						expects(greeting).to.equal('Hello\n');
+
+						callback();
+
+					});					
+				});
+			}
+
+		});
+		
+	});	
+
+});
+
 
 
 
