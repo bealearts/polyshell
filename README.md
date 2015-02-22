@@ -1,30 +1,30 @@
-# polygot [![Build Status](https://travis-ci.org/bealearts/polygot.svg)](https://travis-ci.org/bealearts/polygot) [![Build status](https://ci.appveyor.com/api/projects/status/vrhn3q2qnqvsnl3x?svg=true)](https://ci.appveyor.com/project/DavidBeale/polygot)
+# polyglot [![Build Status](https://travis-ci.org/bealearts/polyglot.svg)](https://travis-ci.org/bealearts/polyglot) [![Build status](https://ci.appveyor.com/api/projects/status/vrhn3q2qnqvsnl3x?svg=true)](https://ci.appveyor.com/project/DavidBeale/polyglot)
 Combines Microsoft Windows and POSIX, shell scripts into a single cross platform script
 
 ## Installation
 As a module
 ```shell
-npm install polygot --save
+npm install polyglot --save
 ```
 
 As a program
 ```shell
-npm install polygot -g
+npm install polyglot -g
 ```
 
 ## Usage
 As a module
 ```js
 var fs = require('fs');
-var polygot = require('polygot');
+var polyglot = require('polyglot');
 
-var polygotStream = polygot(fs.createFileStream('script.bat'), fs.createFileStream('script.sh'));
+var polygotStream = polyglot(fs.createFileStream('script.bat'), fs.createFileStream('script.sh'));
 polygotStream.pipe(fs.createWriteStream('script.cmd'));
 ```
 
 As a program
 ```shell
-polygot script.bat script.sh > script.cmd
+polyglot script.bat script.sh > script.cmd
 ```
 
 ## Example
@@ -42,7 +42,7 @@ echo Hello
 ```
 
 ```shell
-polygot hello.bat hello.sh > hello.cmd
+polyglot hello.bat hello.sh > hello.cmd
 ```
 
 ### On Windows
