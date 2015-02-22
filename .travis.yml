@@ -7,7 +7,7 @@ deploy:
   provider: npm
   email: david.beale@bealearts.co.uk
   api_key:
-    secure: hiPUcKKkw/hJhGNnyQP/apX5OVXKxoBRNxigdphBhmynrJDtY2UFewEPMzY2EizpxlH32QWRE7koT4AZqynRN7YaUPoBREMQ4TCAX60mdz6R+9OguG3K13fong3n1oqM6lIrRGmiQ3nWGOdxZ3YCmJD+p12ekDre8tK/fY4V7G8=
+    secure: W5yZVfirjkfWQqMYCAJG5SCppPtnXPo0eWHNl0P8LLLNxDd9FlBbkFvNESd270zBM9E1vtF590mpNYy29VAJmgu4PrbNDmSHMfcvTVoufOTpM7Nycy+UejXzDiJqsE/0XX3VcOgTA5h1DVAql76OXv10EJ3oiPFNpn5THItjOao=
   on:
     all_branches: true
     tags: true
