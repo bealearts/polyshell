@@ -1,7 +1,7 @@
 {
   "name": "polyglot",
   "description": "Combines Microsoft Windows and POSIX, shell scripts into a single cross platform script",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "lib/polyglot.js",
   "bin": "bin/polyglot.js",
   "homepage": "https://github.com/bealearts/polyglot",
