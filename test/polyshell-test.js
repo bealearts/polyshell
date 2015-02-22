@@ -1,6 +1,6 @@
 'use strict';
 
-var polyglot = require('../lib/polyglot');
+var polyshell = require('../lib/polyshell');
 var fs = require('fs');
 var concat = require('concat-stream');
 var expects = require('chai').expect;
@@ -10,18 +10,18 @@ var exec = require('child_process').exec;
 fs.mkdirSync('tmp');
 
 
-describe('polyglot module', function() {
+describe('polyshell module', function() {
 	
 	it('should combine Windows and POSIX scripts', function(callback) {
 
 		var winScript = fs.createReadStream('test/artifacts/hello.bat');
 		var posixScript = fs.createReadStream('test/artifacts/hello.sh');
 
-		var polyglotStream = polyglot(winScript, posixScript);
+		var polyshellStream = polyshell(winScript, posixScript);
 
 		var concatStream = concat(onResult);
 
-		polyglotStream.pipe(concatStream);
+		polyshellStream.pipe(concatStream);
 
 		function onResult(result) 
 		{
@@ -41,13 +41,13 @@ describe('polyglot module', function() {
 		var winScript = fs.createReadStream('test/artifacts/hello.bat');
 		var posixScript = fs.createReadStream('test/artifacts/hello.sh');
 
-		var polyglotStream = polyglot(winScript, posixScript);
+		var polyshellStream = polyshell(winScript, posixScript);
 
 		var result = fs.createWriteStream('tmp/hello.cmd');
 
-		polyglotStream.pipe(result);
+		polyshellStream.pipe(result);
 
-		polyglotStream.on('end', function(){
+		polyshellStream.on('end', function(){
 
 			if (/^win/.test(process.platform))
 			{
@@ -83,11 +83,11 @@ describe('polyglot module', function() {
 
 
 
-describe('polyglot program', function() {
+describe('polyshell program', function() {
 
 	it('result should execute on Windows and POSIX platforms', function(callback) {
 
-		execute('node bin/polyglot.js test/artifacts/hello.bat test/artifacts/hello.sh > tmp/program.cmd', function() {
+		execute('node bin/polyshell.js test/artifacts/hello.bat test/artifacts/hello.sh > tmp/program.cmd', function() {
 
 			if (/^win/.test(process.platform))
 			{

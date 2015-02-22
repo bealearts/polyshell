@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-var polyglot = require('../lib/polyglot');
+var polyshell = require('../lib/polyshell');
 var program = require('commander');
 
 var fs = require('fs');
@@ -36,10 +36,10 @@ posixScript.on('error', function(error){
 	console.error('Error reading <posix-script-file> file:', error.path);
 });
 
-var polyglotStream = polyglot(winScript, posixScript);
+var polyshellStream = polyshell(winScript, posixScript);
 
-polyglotStream.pipe(process.stdout);
+polyshellStream.pipe(process.stdout);
 
-polyglotStream.on('error', function(error){
+polyshellStream.on('error', function(error){
 	console.error(error);
 });

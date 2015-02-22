@@ -7,8 +7,8 @@ deploy:
   provider: npm
   email: david.beale@bealearts.co.uk
   api_key:
-    secure: W5yZVfirjkfWQqMYCAJG5SCppPtnXPo0eWHNl0P8LLLNxDd9FlBbkFvNESd270zBM9E1vtF590mpNYy29VAJmgu4PrbNDmSHMfcvTVoufOTpM7Nycy+UejXzDiJqsE/0XX3VcOgTA5h1DVAql76OXv10EJ3oiPFNpn5THItjOao=
+    secure: F6WJmOsCBoYz24tiktCH1zQ9hh3aDtGytgAYZhyMVg57JsryheE+oJiJka39mefYJYqGJRvdGNDXcBxgEfAjg1RM+tMn3O8YfPMI1LeZo7RzQjf4en/tB1thAbES6L1kcoMDCEw4YWRwuMBCkuCNP/CRaDK9r5SpbJHOje0BKpE=
   on:
     all_branches: true
     tags: true
-    repo: bealearts/polyglot
+    repo: bealearts/polyshell
